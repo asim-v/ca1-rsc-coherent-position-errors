@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this analysis, please cite this repository."
+title: "Coherent position-decoding deviations in CA1 and retrosplenial cortex"
+type: software
+authors:
+  - family-names: "Bazan Sanchez"
+    given-names: "Javier Emilio"
+    email: "bazan@ciencias.unam.mx"
+affiliation: "Facultad de Ciencias, Universidad Nacional Autonoma de Mexico"
+year: 2026
+license: MIT
+

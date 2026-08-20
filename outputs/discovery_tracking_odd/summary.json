@@ -1,0 +1,106 @@
+{
+  "analysis": "exploratory discovery; not the sealed confirmation",
+  "estimator_version": "discovery-v0.2-temporal-residuals-complete-product-group",
+  "tracking_frame_parity": 1,
+  "inputs": [
+    {
+      "file": "sub-M01_ses-20240312T100000_behavior+ecephys.nwb",
+      "bytes": 187350474,
+      "sha256": "93cba7417eca78d2c3a51987a67f396a5f36ab120c539e1448f48bd07c959761"
+    },
+    {
+      "file": "sub-M01_ses-20240313T100000_behavior+ecephys.nwb",
+      "bytes": 125772852,
+      "sha256": "46a552e378b645fa4f3fab27efbc1fefbb924d245cc71fb1646182144e9fc29a"
+    },
+    {
+      "file": "sub-M01_ses-20240314T100000_behavior+ecephys.nwb",
+      "bytes": 134620736,
+      "sha256": "9990c8c3d307daf753adefa3aa3be13caf17eeb2312614ed681f6784c18e3e3f"
+    },
+    {
+      "file": "sub-M02_ses-20240312T100000_behavior+ecephys.nwb",
+      "bytes": 61347328,
+      "sha256": "323e99a1ec1b028a35da8cd955f2671a1f9e1853b46622c19863424943c962db"
+    },
+    {
+      "file": "sub-M02_ses-20240313T100000_behavior+ecephys.nwb",
+      "bytes": 98347742,
+      "sha256": "6698cfdacd7d5c4c7830b1ae28be6877d267130eee31735201370c06f2b3cdb2"
+    },
+    {
+      "file": "sub-M02_ses-20240314T100000_behavior+ecephys.nwb",
+      "bytes": 121173578,
+      "sha256": "ab411f4b7054a19f2b796b79eb2fc3ae39beb2825053dedf61ec5b3ed0c41db3"
+    },
+    {
+      "file": "sub-M03_ses-20240621T100000_behavior+ecephys.nwb",
+      "bytes": 199825270,
+      "sha256": "2e8679a96325006fad6520d592172ae388b737a5cfc0c3eae471ae8a1f69d001"
+    },
+    {
+      "file": "sub-M03_ses-20240622T100000_behavior+ecephys.nwb",
+      "bytes": 193772642,
+      "sha256": "c097308c6104f4c513a702123eca9216836c247723cc7473ad002d744a05c3e3"
+    },
+    {
+      "file": "sub-M03_ses-20240623T100000_behavior+ecephys.nwb",
+      "bytes": 189681230,
+      "sha256": "f4d1526b88f555a3adbddf91d9bf00acf636c1794933dfab14db6f03c4cb69cf"
+    },
+    {
+      "file": "sub-M05_ses-20240729T100000_behavior+ecephys.nwb",
+      "bytes": 241713926,
+      "sha256": "cea6a9ee049b8fd7257a184bf1538dc46b1ba17134f8d407a507caed80b0d22f"
+    },
+    {
+      "file": "sub-M05_ses-20240730T100000_behavior+ecephys.nwb",
+      "bytes": 246983414,
+      "sha256": "a3c84e252281b587be301d0075f517c119d48454fc09e436aacdfaf1e5489bf1"
+    },
+    {
+      "file": "sub-M05_ses-20240731T100000_behavior+ecephys.nwb",
+      "bytes": 239530098,
+      "sha256": "d3f4604874f944fce2cdfc1eeb2e3e6e76a9d4a1fdd0e4f3ace4078c441a250a"
+    }
+  ],
+  "variants": {
+    "primary": {
+      "records": 48,
+      "subjects": 4,
+      "sessions": 12,
+      "null_draws": 9999,
+      "seed": 20260823,
+      "observed_fisher_z": 0.21168634124201877,
+      "null_mean_fisher_z": 0.009298825032869941,
+      "excess_fisher_z": 0.20238751620914883,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 4
+    },
+    "population_totals": {
+      "records": 48,
+      "subjects": 4,
+      "sessions": 12,
+      "null_draws": 9999,
+      "seed": 20260824,
+      "observed_fisher_z": 0.1836952595138145,
+      "null_mean_fisher_z": 0.010117959256638115,
+      "excess_fisher_z": 0.17357730025717638,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 4
+    },
+    "ca3_partial": {
+      "records": 48,
+      "subjects": 4,
+      "sessions": 12,
+      "null_draws": 9999,
+      "seed": 20260825,
+      "observed_fisher_z": 0.19178564867036846,
+      "null_mean_fisher_z": 0.008836562570690504,
+      "excess_fisher_z": 0.18294908609967794,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 4
+    }
+  },
+  "maximum_continuous_vs_fixed_residual_difference": 4.8407944319706075e-12
+}

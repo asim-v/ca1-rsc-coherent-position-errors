@@ -1,0 +1,9 @@
+{
+  "simulations_per_condition": 1000,
+  "null_draws": 199,
+  "seed": 20260826,
+  "injected_correlation": 0.1,
+  "null_rejection_rate": 0.05,
+  "injected_power": 0.999,
+  "passed": true
+}
