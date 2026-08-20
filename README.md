@@ -48,8 +48,20 @@ The estimator:
 4. tests the residual correlation against the full product group of within-fold
    cyclic traversal rotations, allowing zero shifts in individual strata.
 
-The sealed fixed-condition sessions have not been opened for this outcome. The
-frozen decision rule is in `docs/frozen_confirmation_spec.md`.
+## Held-out confirmation
+
+The frozen one-shot analysis confirmed the primary effect in the three reserved
+fixed-condition sessions:
+
+- primary excess Fisher z `0.1465`, `p = 0.0001`, `3/3` mice positive;
+- population-total adjusted `0.1331`, `p = 0.0001`, `3/3`;
+- CA3-deviation adjusted `0.1392`, `p = 0.0001`, `3/3`;
+- odd tracking-frame reconstruction `0.1524`, `p = 0.0001`, `3/3`.
+
+Both directions, both folds, all six blocks, and every leave-one-mouse-out estimate
+had positive margins. See `docs/confirmation_result.md` for the interpretation and
+limitations. These are held-out sessions from previously represented mice, not new
+animals.
 
 ## Author
 

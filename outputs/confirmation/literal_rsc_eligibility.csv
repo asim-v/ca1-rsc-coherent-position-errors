@@ -1,0 +1,7 @@
+subject,session,block,behavior_blocks,ca1_units,rsc_units,ca3_units,ltr_traversals,rtl_traversals,eligible
+M01,20240318,1,2,50,4,9,29,29,False
+M01,20240318,2,2,51,4,11,27,27,False
+M02,20240318,1,2,76,6,15,22,21,True
+M02,20240318,2,2,77,6,18,26,27,True
+M03,20240624,1,2,95,12,31,23,23,True
+M03,20240624,2,2,88,12,33,20,19,True

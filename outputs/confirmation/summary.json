@@ -1,0 +1,72 @@
+{
+  "analysis": "one-shot held-out-session confirmation in three previously recorded mice",
+  "execution": {
+    "opened_utc": "2026-08-20T06:45:29.853204+00:00",
+    "execution_commit": "a192a80a9785e048e92b90808bf91d77a8914339",
+    "analysis_commit": "e35757987a7e7acca7d5000f75b088f6a4e36a6b",
+    "manifest_self_hash": "b594fa568f4ffdc174cdf040220fc468d8cb5fc447bb2397248f30a09ed71a44",
+    "seed": 20260830,
+    "null_draws": 9999
+  },
+  "results": {
+    "primary": {
+      "records": 24,
+      "subjects": 3,
+      "sessions": 3,
+      "null_draws": 9999,
+      "seed": 20260830,
+      "observed_fisher_z": 0.16600574744773336,
+      "null_mean_fisher_z": 0.01948046835787935,
+      "excess_fisher_z": 0.14652527908985402,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 3
+    },
+    "population_totals": {
+      "records": 24,
+      "subjects": 3,
+      "sessions": 3,
+      "null_draws": 9999,
+      "seed": 20260831,
+      "observed_fisher_z": 0.1495059094498145,
+      "null_mean_fisher_z": 0.016413845238179948,
+      "excess_fisher_z": 0.13309206421163455,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 3
+    },
+    "ca3_partial": {
+      "records": 24,
+      "subjects": 3,
+      "sessions": 3,
+      "null_draws": 9999,
+      "seed": 20260832,
+      "observed_fisher_z": 0.15864204492374007,
+      "null_mean_fisher_z": 0.01943218598118966,
+      "excess_fisher_z": 0.13920985894255042,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 3
+    },
+    "tracking_odd": {
+      "records": 24,
+      "subjects": 3,
+      "sessions": 3,
+      "null_draws": 9999,
+      "seed": 20260833,
+      "observed_fisher_z": 0.16525735933495006,
+      "null_mean_fisher_z": 0.012891085836733651,
+      "excess_fisher_z": 0.1523662734982164,
+      "p_value": 0.0001,
+      "positive_mouse_margins": 3
+    },
+    "literal_rsc": {
+      "evaluable": false,
+      "records": 16
+    }
+  },
+  "maximum_continuous_vs_fixed_residual_difference": 3.805414316992994e-12,
+  "primary_confirmed": true,
+  "population_total_claim_available": true,
+  "ca3_conditional_claim_available": true,
+  "tracking_sensitivity_passed": true,
+  "narrow_candidate_contribution_supported": true,
+  "new_animal_replication": false
+}
