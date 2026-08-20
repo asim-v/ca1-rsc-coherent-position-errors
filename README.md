@@ -63,6 +63,13 @@ had positive margins. See `docs/confirmation_result.md` for the interpretation a
 limitations. These are held-out sessions from previously represented mice, not new
 animals.
 
+## Manuscript
+
+The current two-column manuscript source is in `manuscript/main.tex`; the rendered
+four-page PDF is `output/pdf/ca1_rsc_coherent_position_deviations.pdf`. The main
+figure is generated directly from archived CSV/NPZ outputs by
+`scripts/make_manuscript_figure.py`.
+
 ## Author
 
 Javier Emilio Bazan Sanchez  
