@@ -1,0 +1,122 @@
+{
+  "schema_version": "coherent-errors-confirmation-manifest-v1",
+  "analysis_commit": "e35757987a7e7acca7d5000f75b088f6a4e36a6b",
+  "python": "3.10.5 (tags/v3.10.5:f377153, Jun  6 2022, 16:14:13) [MSC v.1929 64 bit (AMD64)]",
+  "confirmation_seed": 20260830,
+  "null_draws": 9999,
+  "fixed_inputs": [
+    {
+      "path": "sub-M01_ses-20240318T100000_behavior+ecephys.nwb",
+      "bytes": 190033984,
+      "sha256": "52e402de042fd85e26a95cd83c7142ed38a4df0774eddc93f92305c897ed477d"
+    },
+    {
+      "path": "sub-M02_ses-20240318T100000_behavior+ecephys.nwb",
+      "bytes": 112530616,
+      "sha256": "63bd1f675caf31e949098c5338d81021ae348c1b4496ed28bd0fb59af533b89a"
+    },
+    {
+      "path": "sub-M03_ses-20240624T100000_behavior+ecephys.nwb",
+      "bytes": 229336688,
+      "sha256": "12202f597c04c76c131ed1e8aaf0afbbe2af256daf31dc4b45a64ef0ef633845"
+    }
+  ],
+  "repo_files": [
+    {
+      "path": "README.md",
+      "bytes": 2502,
+      "sha256": "7184a464df554315f29d38a7afdcde5d24ef1001231bacd1934502c0d05b98fc"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 101,
+      "sha256": "96ccde5afcf969ec943b21c5b511b28622c74142637803862754f0c64d9a2f22"
+    },
+    {
+      "path": "docs/discovery_protocol.md",
+      "bytes": 4094,
+      "sha256": "0b3cc31e771ea3b00be2aa08065651b375ccb9307aacaf5134ff09e034c5ecc4"
+    },
+    {
+      "path": "docs/frozen_confirmation_spec.md",
+      "bytes": 4863,
+      "sha256": "18148c4c544ba1bb338eacfa782f825056285682dab59aa6066d9c4e21f9b530"
+    },
+    {
+      "path": "docs/novelty_boundary.md",
+      "bytes": 2236,
+      "sha256": "21f0131ab2ce97171def06cbdff76149e4bc558fb45e101dcc23a2bcf0644c71"
+    },
+    {
+      "path": "scripts/coherent_error_core.py",
+      "bytes": 18272,
+      "sha256": "cd01d2c2983385ba637b401325b915ac156a68998bc25906d41b2449c6631c98"
+    },
+    {
+      "path": "scripts/run_discovery.py",
+      "bytes": 14153,
+      "sha256": "9af35e1a1d3da98a820c78c8812c983c302ea744ad2acbcb950cad948801401d"
+    },
+    {
+      "path": "scripts/run_confirmation.py",
+      "bytes": 12276,
+      "sha256": "4baad9f33d1af5ecd5eb4fe0d5168f3dac431668a2f1fae46cb1b5fa5e932506"
+    },
+    {
+      "path": "scripts/calibrate_rotation_null.py",
+      "bytes": 4889,
+      "sha256": "f1a75050997e34f1575bfc0ee2d3f740a51c1d81112845022a655f83c9d8a889"
+    },
+    {
+      "path": "scripts/create_frozen_manifest.py",
+      "bytes": 3672,
+      "sha256": "59199f406fe5a2d183cbcdb2ac4516485d3c74bb5c4727a2a3ecdebbce46b1ef"
+    },
+    {
+      "path": "tests/test_core.py",
+      "bytes": 3319,
+      "sha256": "ec373bce81bcabbfd7ea1f7994f80f83d7f6b217a4b1cd997a931b71cb46f5fc"
+    },
+    {
+      "path": "outputs/calibration/summary.json",
+      "bytes": 197,
+      "sha256": "20b04903443e0d0124daeb2049d6bcde1d28f120d6d1f02dfb332e64382df6da"
+    },
+    {
+      "path": "outputs/calibration/simulation_results.csv",
+      "bytes": 76569,
+      "sha256": "15394095ab040504e9b95b37b32ab137b07bd8fe9b596a6f1def1976850b7777"
+    },
+    {
+      "path": "outputs/discovery/summary.json",
+      "bytes": 3644,
+      "sha256": "4a10ff771af2d72cdb2f0418591824a01f68e94c901e84b7b2a45936304d2d8a"
+    },
+    {
+      "path": "outputs/discovery/primary_record_scores.csv",
+      "bytes": 4458,
+      "sha256": "771358608c7e5985d17fe4c22eb05f78f3f470e0f40cce8881b5aaba801588c2"
+    },
+    {
+      "path": "outputs/discovery/primary_mouse_scores.csv",
+      "bytes": 325,
+      "sha256": "1928f8546d245b2ea01dbd9ff2ca4a711626cb62f3227fd3b176114af4c84260"
+    },
+    {
+      "path": "outputs/discovery/population_totals_record_scores.csv",
+      "bytes": 4469,
+      "sha256": "2b7d7b703ac14f79c85bd68cffe8a724466c8159a6b73998c98b9f4c35fab8e7"
+    },
+    {
+      "path": "outputs/discovery/ca3_partial_record_scores.csv",
+      "bytes": 4454,
+      "sha256": "bb5410a4152ab661149bd8ffee634fe394da9f2efdfef8bedbbb88ce780ef16e"
+    },
+    {
+      "path": "outputs/discovery_tracking_odd/summary.json",
+      "bytes": 3695,
+      "sha256": "fa3afb9aca7bd0e7d8ff185c4dcfd9ef33394c2c5007e04bfc17bdb623916119"
+    }
+  ],
+  "manifest_self_hash": "b594fa568f4ffdc174cdf040220fc468d8cb5fc447bb2397248f30a09ed71a44"
+}
