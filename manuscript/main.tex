@@ -9,7 +9,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-  pdftitle={Within-traversal position-decoding deviations covary between hippocampal CA1 and retrosplenial cortex},
+  pdftitle={Position-decoding deviations covary between hippocampal CA1 and retrosplenial cortex},
   pdfauthor={Javier Emilio Bazan Sanchez}
 }
 \usepackage{xcolor}
@@ -21,7 +21,7 @@
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0pt}
 
-\title{Within-traversal position-decoding deviations covary between hippocampal CA1 and retrosplenial cortex}
+\title{Position-decoding deviations covary between hippocampal CA1 and retrosplenial cortex}
 \author{Javier Emilio Bazan Sanchez\\
 \small Facultad de Ciencias, Universidad Nacional Autonoma de Mexico\\
 \small \texttt{bazan@ciencias.unam.mx}}
@@ -31,57 +31,59 @@
 \maketitle
 
 \begin{abstract}
-Hippocampal and cortical populations can encode the same spatial variable while using different neural codes. Whether their moment-to-moment spatial estimates fluctuate together is known for CA1--visual and CA1--prefrontal networks, but has not been tested for the hippocampal--retrosplenial axis. We analyzed simultaneous CA3, CA1, and deep-layer retrosplenial cortex (RSC) recordings from freely moving mice. Independent conditional-multinomial decoders were trained in odd/even traversal folds. We removed measured position, nonlinear speed, and trial-order effects at 250-ms resolution, averaged residuals within traversal-by-position cells, and compared same-traversal CA1--RSC correlations with a complete-group cyclic trial-rotation reference. In 12 exploratory sessions, the equal-mouse excess Fisher correlation was 0.2042 ($p=0.0001$; four of four mice positive). A frozen one-shot analysis of three reserved fixed-condition sessions confirmed the effect (excess Fisher $z=0.1465$, $p=0.0001$; three of three mice positive). Confirmation survived adjustment for CA1, RSC, and CA3 population spike totals (0.1331), adjustment for the independently decoded CA3 deviation (0.1392), and reconstruction from the opposite tracking-frame parity (0.1524; all $p=0.0001$). The result supports coherent within-traversal spatial deviations in CA1 and the source-defined non-narrow RSC population. It does not establish subjective position, causal direction, or replication in new animals.
+Different brain regions can represent where an animal is, but it is less clear whether their estimates drift together from moment to moment. Such coordination has been reported between CA1 and visual or prefrontal cortex, but had not been tested between CA1 and retrosplenial cortex (RSC). We reanalyzed simultaneous CA3, CA1, and deep-layer RSC recordings from freely moving mice. Separate decoders estimated position from each region. We then asked a simple question: within the same traversal, did CA1 and RSC tend to place the animal ahead or behind its measured position at the same time? We accounted for position, nonlinear effects of running speed, and progress through the session, and compared the observed relation with 9,999 trial rotations that broke same-traversal alignment. In 12 exploratory sessions, the equal-mouse excess Fisher correlation was 0.2042 ($p=0.0001$; four of four mice positive). A prespecified one-shot analysis of three reserved sessions confirmed the effect (excess Fisher $z=0.1465$, $p=0.0001$; three of three mice positive). The result remained after accounting for overall firing across CA1, RSC, and CA3 (0.1331), for the independently decoded CA3 deviation (0.1392), and for the choice of tracking frames (0.1524; all $p=0.0001$). Thus, CA1 and the source-defined non-narrow RSC population showed coordinated short-timescale deviations during navigation. The data do not identify subjective position, a causal direction, or replication in new animals.
 \end{abstract}
 
 \section{Introduction}
 
-Neural populations in different brain regions can carry coordinated estimates of spatial position. In virtual navigation, errors decoded independently from CA1 and visual cortex covary and can follow the animal's behaviorally reported position rather than its measured location \citep{saleem2018}. CA1 and prefrontal cortex also show coherent decoding errors on a theta-cycle timescale \citep{tang2019}. Related co-fluctuation has been reported between hippocampal and visual neurons during freely moving behavior \citep{haggerty2015}. These results motivate a narrower question: does the retrosplenial cortex (RSC), a cortical hub for navigation and memory, share moment-to-moment spatial deviations with hippocampal CA1?
+The hippocampus carries a population code for location \citep{okeefe1971,wilson1993}, and that code can be used to estimate an animal's position from neural activity \citep{zhang1998}. Yet navigation is not supported by the hippocampus alone. Retrosplenial cortex (RSC) represents position, route progress, goals, landmarks, boundaries, and heading in forms that partly overlap with, but are not identical to, hippocampal coding \citep{alexander2015,mao2017,miller2019,fischer2020,alexander2020,sit2023,subramanian2024}. Its strong anatomical and functional links with the hippocampal system make RSC a plausible partner in maintaining an online estimate of location \citep{sugar2011,cooper2001,mao2018}.
 
-The source recordings provide simultaneous access to CA3, CA1, and deep-layer RSC during linear-track navigation. Their original analysis identified structured cross-area subspaces, spatially organized members, and lead--lag relationships along the CA3--CA1--RSC axis \citep{gonzalez2026}. Those analyses establish population coupling, but do not ask whether independently decoded online positions deviate in the same direction within individual traversals. This distinction matters because two regions can encode position accurately without sharing trial-specific fluctuations.
+Previous work shows that independently decoded spatial errors can move together across brain regions. This has been observed between CA1 and visual cortex, between CA1 and prefrontal cortex, and in the joint activity of hippocampal and visual neurons \citep{saleem2018,tang2019,haggerty2015}. Related coordination has also been found for decoded heading in anterior thalamus and RSC \citep{vandergoes2024}. The open question here is more specific: do CA1 and RSC share short-timescale deviations in their estimates of position?
 
-We therefore tested a simple registered quantity: after removing measured position and available behavioral covariates, does an RSC decoder tend to place the animal ahead when a CA1 decoder places it ahead, and behind when CA1 places it behind? We first developed the analysis in 12 single-maze sessions. We then froze the estimator, product-group trial-rotation reference, calibration, provenance, and decision rule before opening three fixed-condition sessions reserved for held-out-session confirmation.
+The source dataset contains simultaneous CA3, CA1, and deep-layer RSC recordings during linear-track navigation. The original study found structured patterns of communication and timing relationships along the CA3--CA1--RSC axis \citep{gonzalez2026}. It did not test whether separately decoded CA1 and RSC positions shift in the same direction on individual traversals. Two regions can both represent position well without sharing these moment-to-moment shifts, so this question is not answered by spatial tuning or population coupling alone.
+
+We therefore asked whether an RSC decoder tended to place the animal ahead when a CA1 decoder placed it ahead, and behind when CA1 placed it behind, after accounting for measured position and available behavior. We developed the analysis in 12 single-maze sessions. Before opening three reserved fixed-condition sessions, we fixed the estimator, null model, calibration, provenance, and decision rule.
 
 \section{Results}
 
-\subsection{Cross-fitted spatial estimates covary within traversals}
+\subsection{CA1 and RSC estimates drift together within a traversal}
 
-Separate CA1 and RSC decoders were trained for each direction and maze block, using odd traversals to predict even traversals and vice versa. The decoder likelihood conditioned on total spike count, so its spatial estimate depended on the distribution of spikes across cells rather than population count alone. All locomotor windows were retained, including zero-spike windows. Signed deviations were residualized separately in each area against position-bin effects, continuous within-bin position, cubic speed, and quadratic trial order before averaging within traversal-by-position cells.
+Separate CA1 and RSC decoders were trained for each direction and maze block. A decoder trained on odd traversals predicted even traversals, and the reverse decoder predicted odd traversals. Each decoder conditioned on the total number of spikes, so position was inferred from how spikes were distributed across cells rather than from overall firing alone. We retained every locomotor window, including windows with no spikes. For each region, we removed systematic effects of exact position within a bin, nonlinear running speed, and trial order. We then averaged the remaining signed deviations within each traversal and position bin.
 
-The primary statistic was the Pearson correlation of CA1 and RSC residuals within each block, direction, and held-out fold. Correlations were Fisher transformed and averaged equally over folds, directions, blocks, sessions within mouse, and mice. The reference distribution cyclically rotated RSC traversal identities within every block-by-direction-by-fold stratum. Each stratum used the complete cyclic group, including zero shifts; 9,999 product-group draws were propagated through the full hierarchy.
+The primary measure was the correlation between CA1 and RSC deviations in each block, direction, and held-out fold. We transformed the correlations to Fisher $z$ values and gave equal weight to folds, directions, blocks, sessions within each mouse, and finally mice. To ask whether same-traversal alignment mattered, we repeatedly rotated the RSC traversal labels while leaving each traversal's spatial pattern intact. The 9,999 rotations included every allowed shift, including zero, and were averaged through the same hierarchy as the observed data.
 
-In discovery, observed CA1--RSC coherence exceeded the rotation reference by Fisher $z=0.2042$ ($p=0.0001$), with positive mouse margins in four of four mice and positive session margins in 11 of 12 sessions. The single negative session was M02-20240312, which contained only seven active source-defined RSC units.
+In discovery, the observed CA1--RSC correlation exceeded the rotation reference by Fisher $z=0.2042$ ($p=0.0001$). The difference was positive in all four mice and in 11 of 12 sessions. The only negative session, M02-20240312, contained seven active source-defined RSC units.
 
-\subsection{The frozen held-out analysis confirmed the effect}
+\subsection{The prespecified held-out test confirmed the result}
 
-The held-out analysis included exactly three fixed-condition sessions, one each from M01, M02, and M03, with two maze blocks per session. These were different recordings from discovery but came from previously represented animals. All six blocks passed frozen cell and traversal gates.
+The held-out test used exactly three fixed-condition sessions, one each from M01, M02, and M03, with two maze blocks per session. These recordings were not used in discovery, although the same animals were represented there. All six blocks met the prespecified requirements for cell counts and traversals.
 
-The primary held-out statistic was $z=0.1660$, compared with a mean rotated value of 0.0195, yielding an excess of 0.1465 ($p=0.0001$; Fig.~\ref{fig:main}). All three mouse margins, all three leave-one-mouse-out margins, both directions, both folds, and all six block margins were positive. Nineteen of 24 block-by-direction-by-fold records had positive observed-minus-rotation margins.
+The observed held-out value was $z=0.1660$, whereas the mean rotation value was 0.0195. Their difference was 0.1465 ($p=0.0001$; Fig.~\ref{fig:main}). The effect was positive in all three mice, after leaving out each mouse in turn, in both running directions, in both training/test folds, and in all six maze blocks. Nineteen of the 24 block-by-direction-by-fold records were positive.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figure1.png}
-\caption{\textbf{CA1 and RSC show coherent held-out position-decoding deviations.} \textbf{A}, Conceptual definition: both independently decoded positions deviate in the same direction from measured position. The analysis correlates covariate-adjusted deviations rather than these raw values. \textbf{B}, Mouse-level observed-minus-rotation Fisher correlations in exploratory and held-out sessions; horizontal bars are cohort means. \textbf{C}, All six held-out maze blocks had positive margins. \textbf{D}, The effect persisted after adjustment for three-area population totals, adjustment for decoded CA3 deviation, and reconstruction from odd tracking frames. Points show mice and lines show equal-mouse means. \textbf{E}, Frozen held-out primary statistic (red) relative to 9,999 complete-product cyclic trial rotations.}
+\caption{\textbf{CA1 and RSC position estimates deviate together in held-out sessions.} \textbf{A}, Core idea: two independently decoded positions fall ahead of or behind measured position together. The analysis uses deviations after accounting for measured behavior. \textbf{B}, Observed-minus-rotation Fisher correlations for each mouse in exploratory and held-out sessions; horizontal bars show cohort means. \textbf{C}, The difference was positive in all six held-out maze blocks. \textbf{D}, It remained positive after accounting for overall firing in the three regions, decoded CA3 deviation, and the choice of tracking frames. Points are mice and lines are equal-mouse means. \textbf{E}, Prespecified held-out value (red) relative to 9,999 trial rotations.}
 \label{fig:main}
 \end{figure*}
 
-\subsection{Population vigor, CA3 deviation, and tracking do not account for the result}
+\subsection{Overall firing, CA3, and tracking noise do not explain the result}
 
-Adding log-transformed CA1, RSC, and CA3 population spike totals to each area's temporal residual model reduced the held-out excess modestly to 0.1331, but the result remained outside all 9,999 rotations ($p=0.0001$; three of three mice positive). Thus the observed sign coordination was not explained solely by population vigor or the simultaneous absence of spikes.
+We first added the total number of spikes in CA1, RSC, and CA3 to the adjustment model. The held-out difference decreased modestly to 0.1331 but remained larger than all 9,999 rotated values ($p=0.0001$; three of three mice positive). The relation therefore was not explained solely by broad increases and decreases in firing, or by both regions being silent at the same time.
 
-We next removed a cubic function of the independently decoded, aligned CA3 residual from both CA1 and RSC. The held-out excess remained 0.1392 ($p=0.0001$; three of three mice positive). This conditional result does not identify a pathway, but shows that a scalar decoded CA3 displacement did not fully account for the CA1--RSC relation.
+We next accounted for the independently decoded CA3 deviation in both CA1 and RSC. The held-out difference remained 0.1392 ($p=0.0001$; three of three mice positive). This analysis does not identify a pathway. It shows only that a single, aligned CA3 position deviation did not fully explain the CA1--RSC relation.
 
-A common tracking value can create correlated raw errors when it is subtracted from two decoded estimates. Here, continuous-position and bin-center errors became algebraically identical after projection through the frozen position design; their maximum numerical discrepancy was $3.81\times10^{-12}$. Reconstructing the monotone trajectory from the opposite parity of tracking frames also preserved the held-out excess (0.1524, $p=0.0001$; three of three mice positive). These checks strongly disfavor framewise tracking jitter as the source of the result.
+There is a simple tracking artifact to guard against: subtracting the same noisy position measurement from two decoded estimates can make their raw errors look correlated. After the fixed position adjustment used here, errors defined from continuous position and from the center of each spatial bin were numerically equivalent; their largest difference was $3.81\times10^{-12}$. Rebuilding the animal's trajectory from the opposite half of the tracking frames also preserved the held-out result (0.1524, $p=0.0001$; three of three mice positive). These checks make frame-by-frame tracking noise an unlikely explanation.
 
 \section{Discussion}
 
-The data support a limited but reproducible phenomenon: within the same traversal and spatial bin, CA1 and deep-layer RSC population decoders tend to deviate in the same direction after measured position, nonlinear speed, and trial order are removed. The relation replicated in sessions that were not used to select the estimator and survived adjustments for population totals and decoded CA3 displacement. This extends coherent spatial-deviation analyses from CA1--visual and CA1--prefrontal systems \citep{saleem2018,tang2019} to the hippocampal--retrosplenial axis.
+The central finding is straightforward: within the same traversal and part of the track, CA1 and deep-layer RSC decoders tended to be ahead or behind together. The relation remained after accounting for measured position, nonlinear speed, progress through the session, overall firing, and the decoded CA3 deviation. It was also present in sessions that were not used to choose the analysis. This extends earlier observations of coordinated spatial estimates in CA1--visual and CA1--prefrontal networks \citep{saleem2018,tang2019} to the hippocampal--retrosplenial axis.
 
-The result does not imply that CA1 sends an error signal to RSC. Simultaneous deviations could arise from direct or indirect coupling, shared inputs, an unmeasured behavioral variable, or a distributed network state. Only position and speed were available in the released behavior data. Unlike the study of CA1 and visual cortex \citep{saleem2018}, there was no independent licking or choice-error measure with which to identify an animal's subjective position. We therefore use ``decoded-position deviation'' rather than ``subjective position.''
+The result does not mean that CA1 sends an error signal to RSC. The shared deviations could arise through direct or indirect coupling, common inputs, an unmeasured aspect of behavior, or a broader network fluctuation. Only position and speed were available in the released behavioral data. Unlike the CA1--visual study \citep{saleem2018}, this dataset contained no independent licking or choice-error measure that could reveal where the animal believed it was. We therefore describe a ``decoded-position deviation,'' not ``subjective position.''
 
-The held-out sessions are a strong safeguard against analysis overfitting but not an independent-animal replication: M01, M02, and M03 were already represented in discovery. Population inference is consequently limited to the four recorded mice. In addition, the source-convention RSC population excluded narrow interneurons but included wide-spiking cells. The literal RSC ``Pyramidal Cell'' sensitivity was not evaluable in all held-out blocks because M01 had four eligible labeled cells per block, below the frozen minimum of five. A new experiment should replicate the result in additional animals with histologically resolved RSC cell classes and behavioral reports of navigation error.
+The held-out sessions protect against choosing an analysis that fits only the exploratory recordings, but they are not a new-animal replication: M01, M02, and M03 were already present in discovery. The population claim is therefore limited to the four recorded mice. The source-defined RSC population also excluded narrow interneurons but included wide-spiking cells. A stricter analysis using only units labeled ``Pyramidal Cell'' could not be completed in every held-out block because M01 had four eligible labeled cells per block, below the prespecified minimum of five. The clearest next experiment is a replication in new animals, with histologically identified RSC cell classes and an independent behavioral report of navigation error.
 
-The CA3 conditional analysis offers a concrete next step. Simultaneous decoding from CA3, CA1, and RSC could be extended to lag-resolved or state-space models that ask whether a common positional displacement propagates through the axis, without assuming direction from zero-lag correlation. Such analyses should be preregistered on independent data and should preserve the strict separation between a shared online spatial estimate and a behaviorally validated subjective map.
+The CA3 analysis suggests a second next step. Time-lagged models could test whether a shared position deviation appears first in one region and later in another, without treating simultaneous correlation as evidence of direction. That study should be specified before examining new data and should keep two ideas separate: a shared neural estimate of position and a subjective map validated by behavior.
 
 \section{Methods}
 
@@ -93,7 +95,7 @@ CA1 and CA3 populations used units labeled ``Pyramidal Cell.'' The primary RSC p
 
 \subsection{Behavioral coordinate and temporal observations}
 
-Position was linearized by the first principal component and normalized using the first and 99th percentiles within each maze block. Traversals connected the 0.15 and 0.85 endpoints, covered at least 0.70 of the track, and lasted no more than 120 s. Within each traversal, a monotone coordinate was fitted by pool-adjacent-violators regression to even-indexed tracking frames and interpolated to 250-ms nonoverlapping neural windows. Windows required speed above 2.5 cm/s. The decoder used 24 fixed physical bins and was evaluated in central bins 4--19.
+Position was reduced to the track's main axis and normalized from zero to one using the first and 99th percentiles within each maze block. Traversals connected the 0.15 and 0.85 endpoints, covered at least 0.70 of the track, and lasted no more than 120 s. Within each traversal, pool-adjacent-violators regression produced a monotonic path from even-indexed tracking frames; this path was interpolated to nonoverlapping 250-ms neural windows. Windows required speed above 2.5 cm/s. The decoder used 24 fixed physical bins and was evaluated in central bins 4--19.
 
 \subsection{Conditional-multinomial decoding}
 
@@ -107,17 +109,17 @@ where $K_i(x)$ is the one-bin Gaussian-smoothed spike count for cell $i$, $N$ is
 \end{equation}
 with a uniform spatial prior. The decoded position was the posterior mean of the 24 bin centers. When $n=0$, the posterior was uniform and the prediction was 0.5; these windows were retained.
 
-Decoders were fitted separately by area, block, direction, and traversal parity. Even traversals predicted odd traversals and vice versa. No test traversal contributed spikes to its decoder template.
+Decoders were fitted separately for each brain region, maze block, running direction, and traversal parity. Even traversals predicted odd traversals and vice versa, so no test traversal contributed spikes to the decoder used on it.
 
 \subsection{Covariate adjustment and record statistic}
 
-At each held-out 250-ms window, signed error was decoded position minus continuous measured coordinate. In each block-by-direction-by-fold record, CA1, RSC, and CA3 errors were separately projected on a fixed design containing 16 true-bin indicators, linear/quadratic/cubic within-bin coordinate, linear/quadratic/cubic standardized speed, and linear/quadratic normalized traversal order. Residuals were averaged within traversal-by-position cells. The primary record statistic was the Pearson correlation of CA1 and RSC residuals, Fisher transformed before hierarchical averaging.
+At each held-out 250-ms window, signed error was decoded position minus measured position. In each block-by-direction-by-fold record, we separately adjusted CA1, RSC, and CA3 errors for 16 position-bin indicators, linear, quadratic, and cubic terms for position within each bin, linear, quadratic, and cubic standardized speed, and linear and quadratic traversal order. The remaining deviations were averaged within traversal-by-position cells. The record-level measure was the Pearson correlation between CA1 and RSC deviations, transformed to Fisher $z$ before hierarchical averaging.
 
 The population-total control added log-transformed CA1, RSC, and CA3 spike totals from each 250-ms window to the residual design. For the CA3 control, a cubic function of the aggregated decoded CA3 residual was removed from both CA1 and RSC before their correlation.
 
 \subsection{Trial-rotation inference}
 
-For every draw and block-by-direction-by-fold stratum, the RSC traversal rows were cyclically shifted by an independently sampled integer from zero through $n-1$. The full RSC row, position columns, and missing-bin mask moved together. The product of these cyclic groups preserves within-traversal spatial structure while breaking same-traversal alignment. All 9,999 draws were aggregated using the same equal fold, direction, block, session-within-mouse, and mouse hierarchy as the observed statistic. One-sided Monte Carlo values used
+For every draw and block-by-direction-by-fold group, RSC traversal rows were cyclically shifted by an independently sampled integer from zero through $n-1$. The full RSC row, its position columns, and its missing-bin mask moved together. This preserved each traversal's spatial pattern while breaking its alignment with the matching CA1 traversal. All 9,999 draws were averaged using the same equal weighting of folds, directions, blocks, sessions within mouse, and mice as the observed value. One-sided Monte Carlo values used
 \begin{equation}
 p=\frac{1+\#\{T_{\mathrm{null}}\geq T_{\mathrm{obs}}\}}{1+9999}.
 \end{equation}
@@ -132,7 +134,18 @@ All analysis code, frozen specifications, calibration draws, discovery outputs, 
 
 This study reanalyzes publicly released recordings. We thank the original investigators for making the dataset available.
 
-\begin{thebibliography}{9}
+{\footnotesize
+\setlength{\bibsep}{2pt}
+\begin{thebibliography}{99}
+\bibitem[O'Keefe and Dostrovsky(1971)]{okeefe1971}
+O'Keefe J, Dostrovsky J. The hippocampus as a spatial map: preliminary evidence from unit activity in the freely-moving rat. \emph{Brain Res}. 1971;34:171--175. doi:10.1016/0006-8993(71)90358-1.
+
+\bibitem[Wilson and McNaughton(1993)]{wilson1993}
+Wilson MA, McNaughton BL. Dynamics of the hippocampal ensemble code for space. \emph{Science}. 1993;261:1055--1058. doi:10.1126/science.8351520.
+
+\bibitem[Zhang et al.(1998)]{zhang1998}
+Zhang K, Ginzburg I, McNaughton BL, Sejnowski TJ. Interpreting neuronal population activity by reconstruction: unified framework with application to hippocampal place cells. \emph{J Neurophysiol}. 1998;79:1017--1044. doi:10.1152/jn.1998.79.2.1017.
+
 \bibitem[Saleem et al.(2018)]{saleem2018}
 Saleem AB, Diamanti EM, Fournier J, Harris KD, Carandini M. Coherent encoding of subjective spatial position in visual cortex and hippocampus. \emph{Nature}. 2018;562:124--127. doi:10.1038/s41586-018-0516-1.
 
@@ -142,11 +155,42 @@ Tang W, Shin JD, Jadhav SP. Coherent coding of spatial position mediated by thet
 \bibitem[Haggerty and Ji(2015)]{haggerty2015}
 Haggerty DC, Ji D. Activities of visual cortical and hippocampal neurons co-fluctuate in freely moving rats during spatial behavior. \emph{eLife}. 2015;4:e08902. doi:10.7554/eLife.08902.
 
+\bibitem[Alexander and Nitz(2015)]{alexander2015}
+Alexander AS, Nitz DA. Retrosplenial cortex maps the conjunction of internal and external spaces. \emph{Nat Neurosci}. 2015;18:1143--1151. doi:10.1038/nn.4058.
+
+\bibitem[Mao et al.(2017)]{mao2017}
+Mao D, Kandler S, McNaughton BL, Bonin V. Sparse orthogonal population representation of spatial context in the retrosplenial cortex. \emph{Nat Commun}. 2017;8:243. doi:10.1038/s41467-017-00180-9.
+
+\bibitem[Mao et al.(2018)]{mao2018}
+Mao D, Neumann AR, Sun J, Bonin V, Mohajerani MH, McNaughton BL. Hippocampus-dependent emergence of spatial sequence coding in retrosplenial cortex. \emph{Proc Natl Acad Sci USA}. 2018;115:8015--8018. doi:10.1073/pnas.1803224115.
+
+\bibitem[Miller et al.(2019)]{miller2019}
+Miller AMP, Mau W, Smith DM. Retrosplenial cortical representations of space and future goal locations develop with learning. \emph{Curr Biol}. 2019;29:2083--2090.e4. doi:10.1016/j.cub.2019.05.034.
+
+\bibitem[Fischer et al.(2020)]{fischer2020}
+Fischer LF, Mojica Soto-Albors R, Buck F, Harnett MT. Representation of visual landmarks in retrosplenial cortex. \emph{eLife}. 2020;9:e51458. doi:10.7554/eLife.51458.
+
+\bibitem[Alexander et al.(2020)]{alexander2020}
+Alexander AS, Carstensen LC, Hinman JR, Raudies F, Chapman GW, Hasselmo ME. Egocentric boundary vector tuning of the retrosplenial cortex. \emph{Sci Adv}. 2020;6:eaaz2322. doi:10.1126/sciadv.aaz2322.
+
+\bibitem[Sit and Goard(2023)]{sit2023}
+Sit KK, Goard MJ. Coregistration of heading to visual cues in retrosplenial cortex. \emph{Nat Commun}. 2023;14:1992. doi:10.1038/s41467-023-37704-5.
+
+\bibitem[Subramanian et al.(2024)]{subramanian2024}
+Subramanian DL, Miller AMP, Smith DM. A comparison of hippocampal and retrosplenial cortical spatial and contextual firing patterns. \emph{Hippocampus}. 2024;34:357--377. doi:10.1002/hipo.23610.
+
+\bibitem[Sugar et al.(2011)]{sugar2011}
+Sugar J, Witter MP, van Strien NM, Cappaert NLM. The retrosplenial cortex: intrinsic connectivity and connections with the (para)hippocampal region in the rat. An interactive connectome. \emph{Front Neuroinform}. 2011;5:7. doi:10.3389/fninf.2011.00007.
+
+\bibitem[Cooper and Mizumori(2001)]{cooper2001}
+Cooper BG, Mizumori SJY. Temporary inactivation of the retrosplenial cortex causes a transient reorganization of spatial coding in the hippocampus. \emph{J Neurosci}. 2001;21:3986--4001. doi:10.1523/JNEUROSCI.21-11-03986.2001.
+
 \bibitem[Gonzalez et al.(2026)]{gonzalez2026}
-Gonzalez J, et al. Subspace communication in the hippocampal-retrosplenial axis. \emph{Nature}. 2026. doi:10.1038/s41586-026-10481-z.
+Gonzalez J, V\"or\"oslakos M, Aykan D, Soto N, Nitzan N, Swanson R, Karadas M, Chen ZS, Buzs\'aki G. Subspace communication in the hippocampal-retrosplenial axis. \emph{Nature}. 2026;655:192--201. doi:10.1038/s41586-026-10481-z.
 
 \bibitem[van der Goes et al.(2024)]{vandergoes2024}
 van der Goes MS, et al. Coordinated head direction representations in mouse anterodorsal thalamic nucleus and retrosplenial cortex. \emph{eLife}. 2024;13:e82952. doi:10.7554/eLife.82952.
 \end{thebibliography}
+}
 
 \end{document}
