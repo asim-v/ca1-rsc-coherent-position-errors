@@ -6,7 +6,19 @@ authors:
   - family-names: "Bazan Sanchez"
     given-names: "Javier Emilio"
     email: "bazan@ciencias.unam.mx"
-affiliation: "Facultad de Ciencias, Universidad Nacional Autonoma de Mexico"
-year: 2026
+    affiliation: "Facultad de Ciencias, Universidad Nacional Autonoma de Mexico"
+abstract: >-
+  Reproducible reanalysis of simultaneous CA3, CA1, and deep-layer retrosplenial
+  cortex recordings testing whether independently decoded position deviations
+  covary within traversals.
+version: 1.0.0
+date-released: 2026-08-22
+repository-code: "https://github.com/asim-v/ca1-rsc-coherent-position-errors"
+url: "https://github.com/asim-v/ca1-rsc-coherent-position-errors/releases/tag/v1.0.0"
+keywords:
+  - hippocampus
+  - retrosplenial cortex
+  - spatial navigation
+  - neural decoding
+  - reproducible research
 license: MIT
-

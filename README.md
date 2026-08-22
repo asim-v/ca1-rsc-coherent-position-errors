@@ -1,77 +1,93 @@
 # Coherent position-decoding deviations in CA1 and RSC
 
-This project asks whether independently decoded spatial estimates in hippocampal
-CA1 and deep-layer retrosplenial cortex (RSC) fluctuate together during linear-track
-navigation.
+[![Release](https://img.shields.io/github/v/release/asim-v/ca1-rsc-coherent-position-errors)](https://github.com/asim-v/ca1-rsc-coherent-position-errors/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-The intended empirical statement is deliberately narrow:
+This repository contains the complete public analysis package for a reanalysis of
+simultaneous CA3, CA1, and deep-layer retrosplenial cortex (RSC) recordings during
+linear-track navigation.
 
-> After removing measured position, nonlinear speed effects, and trial-order
-> trends, do within-traversal deviations of independently decoded position covary
-> between CA1 and RSC?
+> **Status:** public version 1.0.0. The manuscript is a research preprint and has
+> not yet undergone external peer review.
 
-This is not a test of causal communication, and a positive result would not by
-itself establish a subjective position estimate. The design also asks whether any
-CA1--RSC relation remains after accounting for the independently decoded CA3
-deviation.
+## Main result
 
-## Data separation
+Independent CA1 and RSC position decoders tended to deviate in the same direction
+within the same traversal and spatial bin. The relation remained after accounting
+for measured position, nonlinear speed, trial order, population spike totals, and
+the independently decoded CA3 deviation.
 
-- **Discovery:** 12 single-maze sessions from four mice.
-- **Sealed confirmation:** the fixed-condition sessions from M01, M02, and M03.
-  They are different recordings, but not new animals.
+- **Discovery:** excess Fisher z `0.2042`, Monte Carlo `p = 0.0001`, `4/4` mice
+  positive across 12 sessions.
+- **Prespecified held-out sessions:** excess Fisher z `0.1465`, `p = 0.0001`,
+  `3/3` mice positive across three reserved fixed-condition sessions.
+- Both directions, both decoder folds, all six held-out maze blocks, and all
+  leave-one-mouse-out estimates were positive.
 
-The confirmation files must not be scored until the estimator, complete-group
-trial-rotation null, simulation checks, and provenance manifest have been committed.
-
-Data source: DANDI:001695, version `0.260319.2023`.
-
-## Discovery result
-
-The strict discovery estimator found a large separation from the complete-group
-trial-rotation reference across 12 sessions:
-
-- primary excess Fisher z: `0.2042`, Monte Carlo `p = 0.0001`, `4/4` mice positive;
-- after CA1/RSC/CA3 population-total adjustment: `0.1757`, `p = 0.0001`, `4/4`;
-- after cubic adjustment for decoded CA3 deviation: `0.1851`, `p = 0.0001`, `4/4`;
-- odd tracking-frame reconstruction: primary excess `0.2024`, `p = 0.0001`, `4/4`.
-
-Eleven of twelve sessions were positive. The exception was M02-20240312, which had
-only seven active source-convention RSC units. These are exploratory results.
-
-The estimator:
-
-1. trains independent conditional-multinomial decoders in odd/even traversal folds;
-2. retains zero-spike time bins instead of selecting simultaneous activity;
-3. removes continuous position, cubic speed, and trial-order effects separately
-   within each region;
-4. tests the residual correlation against the full product group of within-fold
-   cyclic traversal rotations, allowing zero shifts in individual strata.
-
-## Held-out confirmation
-
-The frozen one-shot analysis confirmed the primary effect in the three reserved
-fixed-condition sessions:
-
-- primary excess Fisher z `0.1465`, `p = 0.0001`, `3/3` mice positive;
-- population-total adjusted `0.1331`, `p = 0.0001`, `3/3`;
-- CA3-deviation adjusted `0.1392`, `p = 0.0001`, `3/3`;
-- odd tracking-frame reconstruction `0.1524`, `p = 0.0001`, `3/3`.
-
-Both directions, both folds, all six blocks, and every leave-one-mouse-out estimate
-had positive margins. See `docs/confirmation_result.md` for the interpretation and
-limitations. These are held-out sessions from previously represented mice, not new
-animals.
+The claim is deliberately narrow. This is evidence for coordinated decoded-position
+deviations in these recordings, not subjective position, causal CA1-to-RSC
+communication, or replication in new animals. See
+[the confirmation report](docs/confirmation_result.md) and
+[the novelty boundary](docs/novelty_boundary.md).
 
 ## Manuscript
 
-The current two-column manuscript source is in `manuscript/main.tex`; the rendered
-four-page PDF is `output/pdf/ca1_rsc_coherent_position_deviations.pdf`. The main
-figure is generated directly from archived CSV/NPZ outputs by
-`scripts/make_manuscript_figure.py`.
+- [Rendered manuscript (PDF)](output/pdf/ca1_rsc_coherent_position_deviations.pdf)
+- [LaTeX source](manuscript/main.tex)
+- [Main figure](manuscript/figure1.png)
+
+## Verify the archived result
+
+Python 3.10 is recommended.
+
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest -q
+python scripts/verify_confirmation.py
+```
+
+The verification script independently rebuilds the mouse-level hierarchy and all
+four held-out statistics from the archived record tables and null arrays. It does
+not require the raw NWB files.
+
+For full raw-data reproduction, including the protected one-shot confirmation
+workflow, see [Reproducibility](docs/reproducibility.md).
+
+## Data
+
+Raw recordings are not duplicated in this repository. They are publicly available
+from [DANDI:001695, version 0.260319.2023](https://dandiarchive.org/dandiset/001695/0.260319.2023).
+The exact input filenames and SHA-256 hashes used for confirmation are recorded in
+[`outputs/provenance/frozen_manifest.json`](outputs/provenance/frozen_manifest.json).
+
+## Repository contents
+
+```text
+docs/           frozen protocol, result interpretation, and reproduction guide
+manuscript/     LaTeX source and publication figure
+output/pdf/     rendered manuscript
+outputs/        archived discovery, calibration, and confirmation results
+scripts/        analysis, calibration, figure, provenance, and verification code
+tests/          unit tests for the core estimator and null hierarchy
+```
+
+## Citation
+
+Citation metadata are available in [`CITATION.cff`](CITATION.cff). GitHub's
+**Cite this repository** button can export the citation directly.
 
 ## Author
 
 Javier Emilio Bazan Sanchez  
 Facultad de Ciencias, Universidad Nacional Autonoma de Mexico  
 <bazan@ciencias.unam.mx>
+
+## License
+
+Code and repository-authored documentation are released under the [MIT License](LICENSE).
+The source NWB recordings remain subject to the terms supplied by their original
+authors and DANDI.
